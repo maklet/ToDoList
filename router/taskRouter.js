@@ -18,7 +18,6 @@ router.post("/newtask", async (req, res) => {
             res.redirect("/todolist")
     })
 
-    //new Comment({text:"testdata", author:"authorname"}).save();
 })
 
 
@@ -34,25 +33,23 @@ router.get("/todolist", async (req, res) => {
 router.get("/delete/:id", async (req, res) => {
     console.log(req.params.id);
     await Tasks.deleteOne({ _id: req.params.id });
-    res.redirect("/task");
+    res.redirect("/todolist");
 })
 
-//change task
-router.get("/update/:id", async (req, res) => {
+//Edit task
+router.get("/updatetask/:id", async (req, res) => {
 
-    //Vill hämta bara en data från databas
-    const response = await Task.findById({ _id: req.params.id })
-    console.log(response);
-    //sen skicka den till edit sidan
-    res.render("edit", { response })
+    const updateTask = await Task.findById({ _id: req.params.id })
+
+    res.render("updatetask", { updateTask })
 })
 
-router.post("/update/:id", async (req, res) => {
-    //använd updateOne metoden för att kunnda redigera comment
-    await Task.updateOne({ _id: req.body._id },
-        { $set: { text: req.body.text } })
+router.post("/updatetask/:id", async (req, res) => {
 
-    console.log(req.body);
+    await Task.updateOne({ _id: req.body.id }, { $set: { text: req.body.text } })
+    console.log(req.body)
+    console.log(req.body.id)
+
     res.redirect("/todolist");
 })
 

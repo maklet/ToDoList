@@ -11,13 +11,14 @@
 </head>
 <body>
 
+    <h1>Stuff u need to do:</h1>
+
     <%findtodos.forEach((task) => { %>
           
         <div><%= task.text %></div>
-        <div><%= task.date %></div>
 
-        <a href="/update/<%=task._id%>">Update</a>
-        <a href="/delete/<%= task._id%>"> Delete</a>
+        <a href="/updatetask/<%=task._id%>">Update</a>
+        <a href="/delete/<%=task._id%>"> Delete</a>
 
     <%  }) %>
 
@@ -25,7 +26,7 @@
     <div>
       <form action="/newtask" method="post">
        
-       <input type="text" name="text" id="">
+       <input type="text" name="text" Placeholder="Got stuff to do?">
       <button type="submit">Add task!</button>
 
       </form>
