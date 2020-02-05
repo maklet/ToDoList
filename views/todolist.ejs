@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="/main.css">
+
+    <title>Things to do!</title>
+</head>
+<body>
+
+    <%findtodos.forEach((task) => { %>
+          
+        <div><%= task.text %></div>
+        <div><%= task.date %></div>
+
+        <a href="/update/<%=task._id%>">Update</a>
+        <a href="/delete/<%= task._id%>"> Delete</a>
+
+    <%  }) %>
+
+
+    <div>
+      <form action="/newtask" method="post">
+       
+       <input type="text" name="text" id="">
+      <button type="submit">Add task!</button>
+
+      </form>
+
+    </div>
+    
+</body>
+</html>
