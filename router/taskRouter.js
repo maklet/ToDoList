@@ -32,7 +32,7 @@ router.get("/todolist", async (req, res) => {
 //delete task
 router.get("/delete/:id", async (req, res) => {
     console.log(req.params.id);
-    await Tasks.deleteOne({ _id: req.params.id });
+    await Task.deleteOne({ _id: req.params.id });
     res.redirect("/todolist");
 })
 

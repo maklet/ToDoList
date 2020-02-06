@@ -4,13 +4,18 @@ const taskRouter = require("./router/taskRouter");
 const config = require("./config/config")
 const path = require("path");
 const app = express();
+const sassMiddleware = require("node-sass-middleware");
 
 //middleware
 app.use(express.urlencoded({extended:true}))
 app.use(express.static(path.join(__dirname, "public")));
 app.set("view engine", "ejs");
+app.use(sassMiddleware({
+    src: path.join(__dirname, "scss"),
+    dest: path.join(__dirname, "public")
+}))
 
-
+app.use(express.static(path.join(__dirname, "public")))
 //router 
 app.use(taskRouter);
 
