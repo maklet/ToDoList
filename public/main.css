@@ -2,10 +2,12 @@ body {
   background: #FF705C;
   text-align: center;
   margin-bottom: 20px; }
-
-#listwrapper {
-  padding: 10px;
-  margin-bottom: 25px; }
-
-#task {
-  margin-top: 5px; }
+  body h1 {
+    font-size: 40px; }
+  body #listwrapper {
+    padding: 10px;
+    margin-bottom: 25px; }
+  body #taskwrapper {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 20px; }
