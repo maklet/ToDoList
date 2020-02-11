@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,35 +11,41 @@
 
     <title>Things to do!</title>
 </head>
+
 <body>
 
     <h1>Stuff u need to do:</h1>
 
+    <button><a href="/todolist/?sort=1" style="color:black; text-decoration: none">A-Ö</a></button>
+    <button><a href="/todolist/?sort=-1" style="color:black; text-decoration: none">Ö-A</a></button>
     <div id="listwrapper">
-    <%findtodos.forEach((task) => { %>
-          
+        <%findtodos.forEach((task) => { %>
+
         <div id="taskwrapper">
-        <div><%= task.text %></div>
+            <div><%= task.text %></div>
         </div>
 
         <div id="buttonwrapper">
-        <button><a href="/updatetask/<%=task._id%>"><i class="fa fa-edit" style="font-size:20px;color:black;"></i></a></button>
-        <button><a href="/delete/<%=task._id%>"><i class="fa fa-trash" style="font-size:20px;color:black;"></i></a></button>
-        </div>        
-    
-    <%  }) %>
+            <button><a href="/updatetask/<%=task._id%>"><i class="fa fa-edit"
+                        style="font-size:20px;color:black;"></i></a></button>
+            <button><a href="/delete/<%=task._id%>"><i class="fa fa-trash"
+                        style="font-size:20px;color:black;"></i></a></button>
+        </div>
+
+        <%  }) %>
     </div>
 
 
     <div>
-      <form action="/newtask" method="post">
-       
-       <input type="text" name="text" Placeholder="Got more stuff to do?" style="font-size:20px;">
-      <button type="submit"><i class="fa fa-plus-circle" style="font-size:22px;"></i></button>
+        <form action="/newtask" method="post">
 
-      </form>
+            <input type="text" name="text" Placeholder="Got more stuff to do?" style="font-size:20px;">
+            <button type="submit"><i class="fa fa-plus-circle" style="font-size:22px;"></i></button>
+
+        </form>
 
     </div>
-    
+
 </body>
+
 </html>

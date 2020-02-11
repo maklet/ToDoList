@@ -22,7 +22,8 @@ router.post("/newtask", async (req, res) => {
 
 
 router.get("/todolist", async (req, res) => {
-    const findtodos = await Task.find();
+    const sort = req.query.sort;
+    const findtodos = await Task.find().sort({ text: sort });
     console.log(findtodos)
 
     res.render("todolist", { findtodos });
