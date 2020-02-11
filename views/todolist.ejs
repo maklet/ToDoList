@@ -16,10 +16,13 @@
 
     <h1>Stuff u need to do:</h1>
 
-    <button><a href="/todolist/?sort=1" style="color:black; text-decoration: none">A-Ö</a></button>
-    <button><a href="/todolist/?sort=-1" style="color:black; text-decoration: none">Ö-A</a></button>
+    <button><a href="/todolist/?sort=1" style="color:black; text-decoration: none">A-z</a></button>
+    <span style="font-weight: bold">
+        <- - SORT - ->
+    </span>
+    <button><a href="/todolist/?sort=-1" style="color:black; text-decoration: none">Z-a</a></button>
     <div id="listwrapper">
-        <%findtodos.forEach((task) => { %>
+        <%findtodos.forEach( task => { %>
 
         <div id="taskwrapper">
             <div><%= task.text %></div>
@@ -35,6 +38,7 @@
         <%  }) %>
     </div>
 
+    <!-- pagination -->
 
     <div>
         <form action="/newtask" method="post">
