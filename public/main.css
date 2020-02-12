@@ -3,11 +3,21 @@ body {
   text-align: center;
   margin-bottom: 20px; }
   body h1 {
+    margin-top: 20px;
+    margin-bottom: 20px;
     font-size: 35px; }
+  body #sortspan {
+    margin-left: 10px;
+    margin-right: 10px; }
   body #listwrapper {
     padding: 10px;
+    margin-top: 25px;
     margin-bottom: 25px; }
   body #taskwrapper {
-    margin-top: 20px;
     margin-bottom: 10px;
     font-size: 20px; }
+  body a {
+    color: black; }
+    body a.active {
+      color: blue;
+      text-decoration: underline; }

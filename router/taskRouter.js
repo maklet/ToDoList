@@ -4,31 +4,33 @@ const router = express.Router();
 
 
 
-router.post("/newtask", async (req, res) => {
+router.route("/todolist")
+    .get(async (req, res) => {
+        const currentPage = req.query.page || 1;
+        const items = 3;
+        const sort = req.query.sort;
+        const findtodos = await Task.find()
+        const threeTodos = await Task.find().skip((currentPage - 1) * items).limit(items).sort({ text: sort });
+        const pageCount = Math.ceil(findtodos.length / items)
 
-    const task = new Task({
-        text: req.body.text,
+        res.render("todolist", { threeTodos, pageCount, currentPage });
     })
-    await task.save((error, success) => {
-        if (error) {
-            console.log(error);
-            res.send(error.message)
-        }
-        else
-            res.redirect("/todolist")
+    .post(async (req, res) => {
+
+        const task = new Task({
+            text: req.body.text,
+        })
+        await task.save((error, success) => {
+            if (error) {
+                console.log(error);
+                res.send(error.message)
+            }
+            else
+                res.redirect("/todolist")
+        })
+
     })
 
-})
-
-
-router.get("/todolist", async (req, res) => {
-    const sort = req.query.sort;
-    const findtodos = await Task.find().sort({ text: sort });
-    console.log(findtodos)
-
-    res.render("todolist", { findtodos });
-}
-)
 
 //delete task
 router.get("/delete/:id", async (req, res) => {

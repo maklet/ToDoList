@@ -27,6 +27,6 @@ const options ={
     useNewUrlParser: true
 }
 mongoose.connect(config.databaseURL,options ).then(()=> {
-    console.log("Kolla localhost!")
+    console.log("Check port 8002")
     app.listen(port);
 })
