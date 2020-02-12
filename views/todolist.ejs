@@ -18,11 +18,8 @@
 
     <h1>Stuff u need to do:</h1>
 
-    <button><a href="/todolist/?sort=1" style="color:black; text-decoration: none">A-z</a></button>
-    <span style="font-weight: bold" id="sortspan">
-        <- - SORT - ->
-    </span>
-    <button><a href="/todolist/?sort=-1" style="color:black; text-decoration: none">Z-a</a></button>
+    <button style="margin-right: 10px;"><a href="/todolist/?sort=1" style="color:black; text-decoration: none;">Sort A-z</a></button>
+    <button style="margin-right: 10px;"><a href="/todolist/?sort=-1" style="color:black; text-decoration: none">Sort Z-a</a></button>
     <div id="listwrapper">
         <%threeTodos.forEach( task => { %>
 
@@ -44,16 +41,16 @@
 
     <% for (let page = 1; page <= pageCount; page++ ) { %>
         <% if (currentPage == page) { %>
-            <a href="/todolist/?page=<%= page %>" class="active"><%= page %></a>
+            <a href="/todolist/?page=<%= page %>" class="current"><%= page %></a>
         <% } else { %>
             <a href="/todolist/?page=<%= page %>"><%= page %></a>
         <% } %>
     <% } %>
 
-    <div>
+    <div id="inputfield">
         <form action="/todolist" method="post">
 
-            <input type="text" name="text" Placeholder="Got more stuff to do?" style="font-size:20px;">
+            <input type="text" name="text" Placeholder=" Add stuff to do!" style="font-size:20px;">
             <button type="submit" id="submitbutton"><i class="fa fa-plus-circle" style="font-size:22px;"></i></button>
 
         </form>
