@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="/main.css">
+
+    <title>Change of mind?</title>
+</head>
+<body>
+
+    <h1>Want to edit your task? Simply update it in the field below.</h1>
+
+    <form action="/updatetask/:id" method="POST">
+
+        <input type="text" name="text" value="<%=updateTask.text%>">
+        <input type="text" name="id" value="<%=updateTask._id%>" hidden>
+        <button type="submit">Update Task</button>
+    </form>
+    
+</body>
+</html>

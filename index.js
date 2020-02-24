@@ -30,3 +30,5 @@ mongoose.connect(config.databaseURL,options ).then(()=> {
     console.log("Check port 8002")
     app.listen(port);
 })
+
+module.exports = app

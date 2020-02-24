@@ -1,0 +1,23 @@
+body {
+  background: #FF705C;
+  text-align: center;
+  margin-bottom: 20px; }
+  body h1 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 35px; }
+  body #listwrapper {
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 40px; }
+  body #taskwrapper {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-size: 20px; }
+  body a {
+    color: black; }
+    body a.current {
+      color: blue;
+      text-decoration: underline; }
+  body #inputfield {
+    margin-top: 10px; }
