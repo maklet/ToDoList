@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
-    "start": "npm run build && node dist/index.js",
+    "build": "webpack",
+    "start": "node dist/index.js",
     "cypress": "cypress open",
     "cy:run": "cypress run -- --record --spec 'cypress/intregration/todo_ui_spec.js",
     "test": "npm-run-all --parallel unittest cy:run",
