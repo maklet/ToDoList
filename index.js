@@ -4,18 +4,17 @@ const taskRouter = require("./router/taskRouter");
 let dbUrl = process.env.MONGO_ATLAS_URL  //|| require('./config/config').databaseURL
 const path = require("path");
 const app = express();
-const sassMiddleware = require("node-sass-middleware");
 
 if (dbUrl == undefined) {
     try {
         dbUrl = require('./config/config').databaseURL //(process.env.NODE_ENV == 'production') {
-    }   catch (exception) {
+    } catch (exception) {
         console.log("Could not load local config file", exception.message)
     }
 }
 
 
-        //     const dbUrl = process.env.MONGO_ATLAS_URL
+//     const dbUrl = process.env.MONGO_ATLAS_URL
 // } else {
 //     const dbUrl = require('./config/config').databaseURL
 // }
