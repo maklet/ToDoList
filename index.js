@@ -1,13 +1,21 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const taskRouter = require("./router/taskRouter");
-const dbUrl = process.env.MONGO_ATLAS_URL
+let dbUrl = process.env.MONGO_ATLAS_URL  //|| require('./config/config').databaseURL
 const path = require("path");
 const app = express();
 const sassMiddleware = require("node-sass-middleware");
 
-// if (process.env.NODE_ENV == 'production') {
-//     const dbUrl = process.env.MONGO_ATLAS_URL
+if (dbUrl == undefined) {
+    try {
+        dbUrl = require('./config/config').databaseURL //(process.env.NODE_ENV == 'production') {
+    }   catch (exception) {
+        console.log("Could not load local config file", exception.message)
+    }
+}
+
+
+        //     const dbUrl = process.env.MONGO_ATLAS_URL
 // } else {
 //     const dbUrl = require('./config/config').databaseURL
 // }
