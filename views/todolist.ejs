@@ -18,8 +18,10 @@
 
     <h1>Stuff u need to do:</h1>
 
-    <button style="margin-right: 10px;"><a href="/todolist/?sort=1" style="color:black; text-decoration: none;">Sort A-z</a></button>
-    <button style="margin-right: 10px;"><a href="/todolist/?sort=-1" style="color:black; text-decoration: none">Sort Z-a</a></button>
+    <button style="margin-right: 10px;"><a href="/todolist/?sort=1" style="color:black; text-decoration: none;">Sort
+            A-z</a></button>
+    <button style="margin-right: 10px;"><a href="/todolist/?sort=-1" style="color:black; text-decoration: none">Sort
+            Z-a</a></button>
     <div id="listwrapper">
         <%threeTodos.forEach( task => { %>
 
@@ -28,9 +30,9 @@
         </div>
 
         <div id="buttonwrapper">
-            <button><a href="/updatetask/<%=task._id%>"><i class="fa fa-edit"
+            <button class="update"><a href="/updatetask/<%=task._id%>"><i class="fa fa-edit"
                         style="font-size:20px;color:black;"></i></a></button>
-            <button><a href="/delete/<%=task._id%>"><i class="fa fa-trash"
+            <button class="delete"><a href="/delete/<%=task._id%>"><i class="fa fa-trash"
                         style="font-size:20px;color:black;"></i></a></button>
         </div>
 
@@ -40,11 +42,11 @@
     <!-- pagination here -->
 
     <% for (let page = 1; page <= pageCount; page++ ) { %>
-        <% if (currentPage == page) { %>
-            <a href="/todolist/?page=<%= page %>" class="current"><%= page %></a>
-        <% } else { %>
-            <a href="/todolist/?page=<%= page %>"><%= page %></a>
-        <% } %>
+    <% if (currentPage == page) { %>
+    <a href="/todolist/?page=<%= page %>" class="current"><%= page %></a>
+    <% } else { %>
+    <a href="/todolist/?page=<%= page %>"><%= page %></a>
+    <% } %>
     <% } %>
 
     <div id="inputfield">
